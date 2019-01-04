@@ -1,7 +1,16 @@
 
-package Modelo;
+package AccesoModelo;
 
+import Modelo.Articulo;
+import Modelo.Bebida;
+import Modelo.Bocata;
+import Modelo.Mojito;
+import Modelo.Montado;
+import Modelo.Otro;
+import Modelo.Ticket;
+import Modelo.Lineaticket;
 import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -110,34 +119,57 @@ public class FachadaArticulos extends Fachada{
         }
     }
     public int devolverNumArticulos(){
-        List<Articulo> articulos = (List<Articulo>) manager.createQuery("SELECT u FROM Articulo u").getResultList();
+        List<Articulo> articulos = devolverArticulos();
         int numArticulos = articulos.size();
         return numArticulos;
     }
     public int devolverElementos(int tipo){
         int numElementos = 0;
         if(tipo == 1){
-            List<Bebida> elementos = (List<Bebida>) manager.createQuery("SELECT u FROM Bebida u").getResultList();
+            List<Bebida> elementos =  devolverBebidas();
             numElementos = elementos.size();
         }
         else if(tipo == 2){
-            List<Bocata> elementos = (List<Bocata>) manager.createQuery("SELECT u FROM Bocata u").getResultList();
+            List<Bocata> elementos = devolverBocatas();
             numElementos = elementos.size();
         }
         else if(tipo == 3){
-            List<Mojito> elementos = (List<Mojito>) manager.createQuery("SELECT u FROM Mojito u").getResultList();
+            List<Mojito> elementos = devolverMojitos();
             numElementos = elementos.size();
         }
         else if(tipo == 4){
-            List<Otro> elementos = (List<Otro>) manager.createQuery("SELECT u FROM Otro u").getResultList();
+            List<Otro> elementos = devolverOtros();
             numElementos = elementos.size();
         }
         else if(tipo == 5){
-            List<Montado> elementos = (List<Montado>) manager.createQuery("SELECT u FROM Montado u").getResultList();
+            List<Montado> elementos = devolverMontados();
             numElementos = elementos.size();
         }
         return numElementos;
     }
+    public List<Articulo> devolverArticulos(){
+        return (List<Articulo>) manager.createQuery("SELECT u FROM Articulo u").getResultList();
+    }
+    public List<Bebida> devolverBebidas(){
+        return (List<Bebida>) manager.createQuery("SELECT u FROM Bebida u").getResultList();
+    }
+    public List<Bocata> devolverBocatas(){
+        return (List<Bocata>) manager.createQuery("SELECT u FROM Bocata u").getResultList();
+    }
+    public List<Montado> devolverMontados(){
+        return (List<Montado>) manager.createQuery("SELECT u FROM Montado u").getResultList();
+    }
+    public List<Mojito> devolverMojitos(){
+        return (List<Mojito>) manager.createQuery("SELECT u FROM Mojito u").getResultList();
+    }
+    public List<Otro> devolverOtros(){
+        return (List<Otro>) manager.createQuery("SELECT u FROM Otro u").getResultList();
+    }
     
+    
+    
+    @Override
+    public void crearTicket(Date fecha, BigInteger importe, List<Lineaticket> lineaTicket){
+    }
     
 }

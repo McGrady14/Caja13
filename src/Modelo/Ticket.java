@@ -56,6 +56,13 @@ public class Ticket implements Serializable {
         this.idTicket = idTicket;
     }
 
+    public Ticket(Integer idTicket, Date fecha, BigInteger importe, List<Lineaticket> lineaticketList) {
+        this.idTicket = idTicket;
+        this.fecha = fecha;
+        this.importe = importe;
+        this.lineaticketList = lineaticketList;
+    }
+
     public Integer getIdTicket() {
         return idTicket;
     }

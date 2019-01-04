@@ -1,7 +1,9 @@
 
-package Modelo;
+package AccesoModelo;
 
+import Modelo.*;
 import java.util.List;
+import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -41,6 +43,7 @@ public abstract class Fachada {
     public abstract void crearBocata(String etiqueta, String nombre, BigInteger precio);
     public abstract void crearOtro(String etiqueta, String nombre, BigInteger precio);
     public abstract void crearMontado(String etiqueta, String nombre, BigInteger precio);
+    public abstract void crearTicket(Date fecha, BigInteger importe, List<Lineaticket> lineaTicket);
     
     
     

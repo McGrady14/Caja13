@@ -1,7 +1,7 @@
 
 package Creacion;
 
-import Modelo.FachadaArticulos;
+import AccesoModelo.FachadaArticulos;
 import java.math.BigInteger;
 
 /**

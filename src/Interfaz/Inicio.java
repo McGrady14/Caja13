@@ -6,6 +6,10 @@
 package Interfaz;
 
 import Creacion.*;
+import Modelo.*;
+import java.util.List;
+import java.util.Date;
+import java.util.ArrayList;
 import java.math.BigInteger;
 
 /**
@@ -19,15 +23,19 @@ public class Inicio {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        FactoriaArticulos factB = new FactoriaBebida();
-        FactoriaArticulos factC = new FactoriaComida();
-        factB.crearBebida("CocaCola", new BigInteger("25"), "CocaCola", new BigInteger("2"));
-        factB.crearMojito("Medio litro", "Mojito medio Litro", new BigInteger("4"));
-        factC.crearBocata("Tortilla", "Bocata Tortilla", new BigInteger("2"));
-        factC.crearMontado("Tortilla", "Montado Tortilla", new BigInteger("1"));
-        factC.crearOtro("Pincho Moruno", "Pincho Moruno", new BigInteger("3"));
-        
-        
+
+        TicketFactory facT = new TicketFactory();
+        Lineaticket linea1 = new Lineaticket();
+        List<Lineaticket> lineas = new ArrayList();
+        Articulo articulo = new Articulo();
+        articulo.setIdArticulo(1);
+        linea1.setIdArticulo(articulo);
+        linea1.setIdLinea(1);
+        linea1.setTipo(articulo.getNombre());
+        lineas.add(linea1);
+        Date fecha = new Date();
+        fecha.getTime();
+        //facT.factoryTicket(1, fecha, new BigInteger("50"), lineas);
         
     }
     

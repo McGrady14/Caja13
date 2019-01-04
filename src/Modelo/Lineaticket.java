@@ -51,6 +51,14 @@ public class Lineaticket implements Serializable {
         this.idLinea = idLinea;
     }
 
+    public Lineaticket(Integer idLinea, String tipo, Articulo idArticulo, Ticket idTicket) {
+        this.idLinea = idLinea;
+        this.tipo = tipo;
+        this.idArticulo = idArticulo;
+        this.idTicket = idTicket;
+    }
+    
+
     public Integer getIdLinea() {
         return idLinea;
     }
