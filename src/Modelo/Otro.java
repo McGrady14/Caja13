@@ -48,6 +48,12 @@ public class Otro implements Serializable {
         this.idOtro = idOtro;
     }
 
+    public Otro(Integer idOtro, String etiqueta, Articulo idArticulo) {
+        this.idOtro = idOtro;
+        this.etiqueta = etiqueta;
+        this.idArticulo = idArticulo;
+    }
+
     public Integer getIdOtro() {
         return idOtro;
     }

@@ -10,8 +10,9 @@
     <class>Modelo.Bocata</class>
     <class>Modelo.Articulo</class>
     <class>Modelo.Lineaticket</class>
+    <class>Modelo.Montado</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/postgres"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/Caja13"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
       <property name="javax.persistence.jdbc.password" value="1234"/>

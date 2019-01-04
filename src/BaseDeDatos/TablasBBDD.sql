@@ -24,6 +24,14 @@ CREATE TABLE Bocata (
 );
 alter table Bocata add constraint id_articulo foreign key (id_articulo) references Articulo(id_articulo);
 
+CREATE TABLE Montado (
+	id_montado int,
+	etiqueta varchar(50),
+	id_articulo int,
+ primary key(id_montado)		
+);
+alter table Montado add constraint id_articulo foreign key (id_articulo) references Articulo(id_articulo);
+
 CREATE TABLE Otro (
 	id_otro int,
 	etiqueta varchar(50),

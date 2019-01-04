@@ -43,6 +43,8 @@ public class Articulo implements Serializable {
     @Column(name = "precio")
     private BigInteger precio;
     @OneToMany(mappedBy = "idArticulo")
+    private List<Montado> montadoList;
+    @OneToMany(mappedBy = "idArticulo")
     private List<Mojito> mojitoList;
     @OneToMany(mappedBy = "idArticulo")
     private List<Otro> otroList;
@@ -58,6 +60,12 @@ public class Articulo implements Serializable {
 
     public Articulo(Integer idArticulo) {
         this.idArticulo = idArticulo;
+    }
+
+    public Articulo(Integer idArticulo, String nombre, BigInteger precio) {
+        this.idArticulo = idArticulo;
+        this.nombre = nombre;
+        this.precio = precio;
     }
 
     public Integer getIdArticulo() {
@@ -82,6 +90,15 @@ public class Articulo implements Serializable {
 
     public void setPrecio(BigInteger precio) {
         this.precio = precio;
+    }
+
+    @XmlTransient
+    public List<Montado> getMontadoList() {
+        return montadoList;
+    }
+
+    public void setMontadoList(List<Montado> montadoList) {
+        this.montadoList = montadoList;
     }
 
     @XmlTransient

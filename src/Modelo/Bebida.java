@@ -52,6 +52,13 @@ public class Bebida implements Serializable {
         this.idBebida = idBebida;
     }
 
+    public Bebida(Integer idBebida, String etiqueta, BigInteger existencias, Articulo idArticulo) {
+        this.idBebida = idBebida;
+        this.etiqueta = etiqueta;
+        this.existencias = existencias;
+        this.idArticulo = idArticulo;
+    }
+
     public Integer getIdBebida() {
         return idBebida;
     }

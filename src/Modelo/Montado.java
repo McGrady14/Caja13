@@ -22,44 +22,44 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author lafuente
  */
 @Entity
-@Table(name = "bocata")
+@Table(name = "montado")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Bocata.findAll", query = "SELECT b FROM Bocata b")
-    , @NamedQuery(name = "Bocata.findByIdBocata", query = "SELECT b FROM Bocata b WHERE b.idBocata = :idBocata")
-    , @NamedQuery(name = "Bocata.findByEtiqueta", query = "SELECT b FROM Bocata b WHERE b.etiqueta = :etiqueta")})
-public class Bocata implements Serializable {
+    @NamedQuery(name = "Montado.findAll", query = "SELECT m FROM Montado m")
+    , @NamedQuery(name = "Montado.findByIdMontado", query = "SELECT m FROM Montado m WHERE m.idMontado = :idMontado")
+    , @NamedQuery(name = "Montado.findByEtiqueta", query = "SELECT m FROM Montado m WHERE m.etiqueta = :etiqueta")})
+public class Montado implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "id_bocata")
-    private Integer idBocata;
+    @Column(name = "id_montado")
+    private Integer idMontado;
     @Column(name = "etiqueta")
     private String etiqueta;
     @JoinColumn(name = "id_articulo", referencedColumnName = "id_articulo")
     @ManyToOne
     private Articulo idArticulo;
 
-    public Bocata() {
+    public Montado() {
     }
 
-    public Bocata(Integer idBocata) {
-        this.idBocata = idBocata;
+    public Montado(Integer idMontado) {
+        this.idMontado = idMontado;
     }
 
-    public Bocata(Integer idBocata, String etiqueta, Articulo idArticulo) {
-        this.idBocata = idBocata;
+    public Montado(Integer idMontado, String etiqueta, Articulo idArticulo) {
+        this.idMontado = idMontado;
         this.etiqueta = etiqueta;
         this.idArticulo = idArticulo;
     }
 
-    public Integer getIdBocata() {
-        return idBocata;
+    public Integer getIdMontado() {
+        return idMontado;
     }
 
-    public void setIdBocata(Integer idBocata) {
-        this.idBocata = idBocata;
+    public void setIdMontado(Integer idMontado) {
+        this.idMontado = idMontado;
     }
 
     public String getEtiqueta() {
@@ -81,18 +81,18 @@ public class Bocata implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idBocata != null ? idBocata.hashCode() : 0);
+        hash += (idMontado != null ? idMontado.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Bocata)) {
+        if (!(object instanceof Montado)) {
             return false;
         }
-        Bocata other = (Bocata) object;
-        if ((this.idBocata == null && other.idBocata != null) || (this.idBocata != null && !this.idBocata.equals(other.idBocata))) {
+        Montado other = (Montado) object;
+        if ((this.idMontado == null && other.idMontado != null) || (this.idMontado != null && !this.idMontado.equals(other.idMontado))) {
             return false;
         }
         return true;
@@ -100,7 +100,7 @@ public class Bocata implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Bocata[ idBocata=" + idBocata + " ]";
+        return "Modelo.Montado[ idMontado=" + idMontado + " ]";
     }
     
 }

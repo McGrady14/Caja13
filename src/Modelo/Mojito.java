@@ -48,6 +48,12 @@ public class Mojito implements Serializable {
         this.idMojito = idMojito;
     }
 
+    public Mojito(Integer idMojito, String etiqueta, Articulo idArticulo) {
+        this.idMojito = idMojito;
+        this.etiqueta = etiqueta;
+        this.idArticulo = idArticulo;
+    }
+
     public Integer getIdMojito() {
         return idMojito;
     }
