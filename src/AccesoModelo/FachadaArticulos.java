@@ -28,6 +28,7 @@ public class FachadaArticulos extends Fachada{
     private int idMojito;
     private int idOtro;*/
     
+    Invocador inv = new Invocador();
     
     public FachadaArticulos() {
         super.crearFactory();
@@ -36,53 +37,23 @@ public class FachadaArticulos extends Fachada{
     
     @Override 
     public void crearBebida(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
-        int idArticulo = 0;
-        int idBebida =  0;
-        idArticulo = devolverNumArticulos() + 1;
-        idBebida = devolverElementos(1) + 1;
-        Articulo articulo = new Articulo(idArticulo, nombre, precio);
-        Bebida bebida = new Bebida(idBebida, etiqueta, existencias, articulo);
-        try {
-            manager.getTransaction().begin();
-            manager.persist(articulo);
-            manager.persist(bebida);
-            manager.getTransaction().commit();
-            System.out.println("Registra bebida");
-        } catch (Exception e) {
-            System.out.println("No registra bebida");
-        }
+        Comando comando = new ComandoBebida();
+        inv.setComando(comando);
+        inv.ejecutaCrearArticulo(etiqueta, existencias, nombre, precio);
     }
     @Override 
     public void crearBocata(String etiqueta, String nombre, BigDecimal precio){
-        int idArticulo = devolverNumArticulos() + 1;
-        int idBocata = devolverElementos(2) + 1;
-        Articulo articulo = new Articulo(idArticulo, nombre, precio);
-        Bocata bocata = new Bocata(idBocata, etiqueta, articulo);
-        try {
-            manager.getTransaction().begin();
-            manager.persist(articulo);
-            manager.persist(bocata);
-            System.out.println("Registra bocata");
-            manager.getTransaction().commit();
-        } catch (Exception e) {
-            System.out.println("No registra bocata");
-        }
+        BigInteger existencias = new BigInteger("0");
+        Comando comando = new ComandoBocata();
+        inv.setComando(comando);
+        inv.ejecutaCrearArticulo(etiqueta, existencias, nombre, precio);
     }
     @Override 
     public void crearMojito(String etiqueta, String nombre, BigDecimal precio){
-       int idArticulo = devolverNumArticulos() + 1;
-        int idMojito = devolverElementos(3) + 1;
-        Articulo articulo = new Articulo(idArticulo, nombre, precio);
-        Mojito mojito = new Mojito(idMojito, etiqueta, articulo);
-        try {
-            manager.getTransaction().begin();
-            manager.persist(articulo);
-            manager.persist(mojito);
-            System.out.println("Registra mojito");
-            manager.getTransaction().commit();
-        } catch (Exception e) {
-            System.out.println("No registra mojito");
-        }
+        BigInteger existencias = new BigInteger("0");
+        Comando comando = new ComandoMojito();
+        inv.setComando(comando);
+        inv.ejecutaCrearArticulo(etiqueta, existencias, nombre, precio);
     }
     @Override 
     public void crearOtro(String etiqueta, String nombre, BigDecimal precio){
@@ -102,23 +73,17 @@ public class FachadaArticulos extends Fachada{
     }
     @Override 
     public void crearMontado(String etiqueta, String nombre, BigDecimal precio){
-        int idArticulo = 0;
-        idArticulo = devolverNumArticulos() + 1;
-        int idMontado = devolverElementos(5) + 1;
-        Articulo articulo = new Articulo(idArticulo, nombre, precio);
-        Montado montado = new Montado(idMontado, etiqueta, articulo);
-        
-        try {
-            manager.getTransaction().begin();
-            manager.persist(articulo);
-            manager.persist(montado);
-            System.out.println("Registra montado");
-            manager.getTransaction().commit();
-
-        } catch (Exception e) {
-            System.out.println("No registra montado");
-        }
+        BigInteger existencias = new BigInteger("0");
+        Comando comando = new ComandoMontado();
+        inv.setComando(comando);
+        inv.ejecutaCrearArticulo(etiqueta, existencias, nombre, precio);
     }
+    
+    
+    
+    
+    
+    
     public int devolverNumArticulos(){
         List<Articulo> articulos = devolverArticulos();
         int numArticulos = articulos.size();
