@@ -6,7 +6,7 @@
 package Modelo;
 
 import java.io.Serializable;
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -41,7 +41,7 @@ public class Articulo implements Serializable {
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "precio")
-    private BigInteger precio;
+    private BigDecimal precio;
     @OneToMany(mappedBy = "idArticulo")
     private List<Montado> montadoList;
     @OneToMany(mappedBy = "idArticulo")
@@ -62,7 +62,7 @@ public class Articulo implements Serializable {
         this.idArticulo = idArticulo;
     }
 
-    public Articulo(Integer idArticulo, String nombre, BigInteger precio) {
+    public Articulo(Integer idArticulo, String nombre, BigDecimal precio) {
         this.idArticulo = idArticulo;
         this.nombre = nombre;
         this.precio = precio;
@@ -84,11 +84,11 @@ public class Articulo implements Serializable {
         this.nombre = nombre;
     }
 
-    public BigInteger getPrecio() {
+    public BigDecimal getPrecio() {
         return precio;
     }
 
-    public void setPrecio(BigInteger precio) {
+    public void setPrecio(BigDecimal precio) {
         this.precio = precio;
     }
 

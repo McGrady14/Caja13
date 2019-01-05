@@ -11,6 +11,7 @@ import Modelo.Otro;
 import Modelo.Ticket;
 import Modelo.Lineaticket;
 import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class FachadaTickets extends Fachada {
     }
     
     @Override
-    public void crearTicket(Date fecha, BigInteger importe, List<Lineaticket> lineaTicket){
+    public void crearTicket(Date fecha, BigDecimal importe, List<Lineaticket> lineaTicket){
         int idTicket = devolverNumTickets() + 1;
         Ticket ticket = new Ticket(idTicket, fecha, importe, lineaTicket);
         
@@ -49,18 +50,18 @@ public class FachadaTickets extends Fachada {
     
     
     @Override 
-    public void crearBebida(String etiqueta, BigInteger existencias, String nombre, BigInteger precio){
+    public void crearBebida(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
     }
     @Override 
-    public void crearBocata(String etiqueta, String nombre, BigInteger precio){
+    public void crearBocata(String etiqueta, String nombre, BigDecimal precio){
     }
     @Override 
-    public void crearMojito(String etiqueta, String nombre, BigInteger precio){
+    public void crearMojito(String etiqueta, String nombre, BigDecimal precio){
     }
     @Override 
-    public void crearOtro(String etiqueta, String nombre, BigInteger precio){
+    public void crearOtro(String etiqueta, String nombre, BigDecimal precio){
     }
     @Override 
-    public void crearMontado(String etiqueta, String nombre, BigInteger precio){
+    public void crearMontado(String etiqueta, String nombre, BigDecimal precio){
     }
 }

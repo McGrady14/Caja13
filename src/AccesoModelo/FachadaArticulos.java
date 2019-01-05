@@ -9,6 +9,7 @@ import Modelo.Montado;
 import Modelo.Otro;
 import Modelo.Ticket;
 import Modelo.Lineaticket;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
@@ -34,7 +35,7 @@ public class FachadaArticulos extends Fachada{
     }
     
     @Override 
-    public void crearBebida(String etiqueta, BigInteger existencias, String nombre, BigInteger precio){
+    public void crearBebida(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
         int idArticulo = 0;
         int idBebida =  0;
         idArticulo = devolverNumArticulos() + 1;
@@ -52,7 +53,7 @@ public class FachadaArticulos extends Fachada{
         }
     }
     @Override 
-    public void crearBocata(String etiqueta, String nombre, BigInteger precio){
+    public void crearBocata(String etiqueta, String nombre, BigDecimal precio){
         int idArticulo = devolverNumArticulos() + 1;
         int idBocata = devolverElementos(2) + 1;
         Articulo articulo = new Articulo(idArticulo, nombre, precio);
@@ -68,7 +69,7 @@ public class FachadaArticulos extends Fachada{
         }
     }
     @Override 
-    public void crearMojito(String etiqueta, String nombre, BigInteger precio){
+    public void crearMojito(String etiqueta, String nombre, BigDecimal precio){
        int idArticulo = devolverNumArticulos() + 1;
         int idMojito = devolverElementos(3) + 1;
         Articulo articulo = new Articulo(idArticulo, nombre, precio);
@@ -84,7 +85,7 @@ public class FachadaArticulos extends Fachada{
         }
     }
     @Override 
-    public void crearOtro(String etiqueta, String nombre, BigInteger precio){
+    public void crearOtro(String etiqueta, String nombre, BigDecimal precio){
         int idArticulo = devolverNumArticulos() + 1;
         int idOtro = devolverElementos(4) + 1;
         Articulo articulo = new Articulo(idArticulo, nombre, precio);
@@ -100,7 +101,7 @@ public class FachadaArticulos extends Fachada{
         }
     }
     @Override 
-    public void crearMontado(String etiqueta, String nombre, BigInteger precio){
+    public void crearMontado(String etiqueta, String nombre, BigDecimal precio){
         int idArticulo = 0;
         idArticulo = devolverNumArticulos() + 1;
         int idMontado = devolverElementos(5) + 1;
@@ -169,7 +170,7 @@ public class FachadaArticulos extends Fachada{
     
     
     @Override
-    public void crearTicket(Date fecha, BigInteger importe, List<Lineaticket> lineaTicket){
+    public void crearTicket(Date fecha, BigDecimal importe, List<Lineaticket> lineaTicket){
     }
     
 }

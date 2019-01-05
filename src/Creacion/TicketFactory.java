@@ -3,6 +3,7 @@ package Creacion;
 
 import AccesoModelo.*;
 import Modelo.*;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
@@ -20,7 +21,7 @@ public class TicketFactory {
     }
 
     
-    public void factoryTicket(int tipo, Date fecha, BigInteger importe, List<Lineaticket> lineaTicket){
+    public void factoryTicket(int tipo, Date fecha, BigDecimal importe, List<Lineaticket> lineaTicket){
         if (tipo == ticket){
             fac.crearTicket(fecha, importe, lineaTicket); //Factoty method y director de un builder
             //Imprimir ticketNormal

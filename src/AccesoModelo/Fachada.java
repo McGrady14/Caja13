@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.math.BigInteger;
+import java.math.BigDecimal;
 
 /**
  *
@@ -38,12 +39,12 @@ public abstract class Fachada {
         return manager;
     }
 
-    public abstract void crearBebida(String etiqueta, BigInteger existencias, String nombre, BigInteger precio);
-    public abstract void crearMojito(String etiqueta, String nombre, BigInteger precio);
-    public abstract void crearBocata(String etiqueta, String nombre, BigInteger precio);
-    public abstract void crearOtro(String etiqueta, String nombre, BigInteger precio);
-    public abstract void crearMontado(String etiqueta, String nombre, BigInteger precio);
-    public abstract void crearTicket(Date fecha, BigInteger importe, List<Lineaticket> lineaTicket);
+    public abstract void crearBebida(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio);
+    public abstract void crearMojito(String etiqueta, String nombre, BigDecimal precio);
+    public abstract void crearBocata(String etiqueta, String nombre, BigDecimal precio);
+    public abstract void crearOtro(String etiqueta, String nombre, BigDecimal precio);
+    public abstract void crearMontado(String etiqueta, String nombre, BigDecimal precio);
+    public abstract void crearTicket(Date fecha, BigDecimal importe, List<Lineaticket> lineaTicket);
     
     
     

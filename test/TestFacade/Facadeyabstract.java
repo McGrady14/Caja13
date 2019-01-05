@@ -8,6 +8,7 @@ package TestFacade;
 import Creacion.FactoriaArticulos;
 import Creacion.FactoriaBebida;
 import Creacion.FactoriaComida;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**
@@ -22,11 +23,11 @@ public class Facadeyabstract {
         // TODO code application logic here
         FactoriaArticulos factB = new FactoriaBebida();
         FactoriaArticulos factC = new FactoriaComida();
-        factB.crearBebida("CocaCola", new BigInteger("25"), "CocaCola", new BigInteger("2"));
-        factB.crearMojito("Medio litro", "Mojito medio Litro", new BigInteger("4"));
-        factC.crearBocata("Tortilla", "Bocata Tortilla", new BigInteger("2"));
-        factC.crearMontado("Tortilla", "Montado Tortilla", new BigInteger("1"));
-        factC.crearOtro("Pincho Moruno", "Pincho Moruno", new BigInteger("3"));
+        factB.crearBebida("CocaCola", new BigInteger("25"), "CocaCola", new BigDecimal("2.5"));
+        factB.crearMojito("Medio litro", "Mojito medio Litro", new BigDecimal("4.5"));
+        factC.crearBocata("Tortilla", "Bocata Tortilla", new BigDecimal("2.25"));
+        factC.crearMontado("Tortilla", "Montado Tortilla", new BigDecimal("1.5"));
+        factC.crearOtro("Pincho Moruno", "Pincho Moruno", new BigDecimal("3.5"));
         
         
         

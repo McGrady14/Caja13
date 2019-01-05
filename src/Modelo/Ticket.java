@@ -6,7 +6,7 @@
 package Modelo;
 
 import java.io.Serializable;
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -45,7 +45,7 @@ public class Ticket implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fecha;
     @Column(name = "importe")
-    private BigInteger importe;
+    private BigDecimal importe;
     @OneToMany(mappedBy = "idTicket")
     private List<Lineaticket> lineaticketList;
 
@@ -56,7 +56,7 @@ public class Ticket implements Serializable {
         this.idTicket = idTicket;
     }
 
-    public Ticket(Integer idTicket, Date fecha, BigInteger importe, List<Lineaticket> lineaticketList) {
+    public Ticket(Integer idTicket, Date fecha, BigDecimal importe, List<Lineaticket> lineaticketList) {
         this.idTicket = idTicket;
         this.fecha = fecha;
         this.importe = importe;
@@ -79,11 +79,11 @@ public class Ticket implements Serializable {
         this.fecha = fecha;
     }
 
-    public BigInteger getImporte() {
+    public BigDecimal getImporte() {
         return importe;
     }
 
-    public void setImporte(BigInteger importe) {
+    public void setImporte(BigDecimal importe) {
         this.importe = importe;
     }
 
