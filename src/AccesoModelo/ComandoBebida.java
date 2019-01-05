@@ -3,9 +3,11 @@ package AccesoModelo;
 
 import static AccesoModelo.Fachada.manager;
 import Modelo.Articulo;
-import Modelo.Bebida;
+import Modelo.*;
+import Creacion.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.List;
 
 /**
  *
@@ -14,6 +16,7 @@ import java.math.BigInteger;
 public class ComandoBebida implements Comando{
     
     FachadaArticulos fachada = new FachadaArticulos();
+    Singleton singleton = Singleton.getInstancia();
     @Override
     public void crearArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
         int idArticulo = 0;
@@ -33,11 +36,37 @@ public class ComandoBebida implements Comando{
         }
     }
     @Override
-    public void modificarArticulo(){
-        
+    public void modificarArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
+        if (singleton.existeArticulo(nombre) && singleton.existeBebida(etiqueta)){
+            try {
+                manager.getTransaction().begin();
+                Articulo articulo = singleton.retornarArticulo(nombre);
+                Bebida bebida = singleton.retornarBebida(etiqueta);
+                articulo.setNombre(nombre);
+                articulo.setPrecio(precio);
+                bebida.setEtiqueta(etiqueta);
+                bebida.setExistencias(existencias);
+                manager.getTransaction().commit();
+                System.out.println("SI actualiza Bebida");
+            } catch (Exception e) {
+                System.out.println("No actualiza Bebida");
+            }
+        }
     }
     @Override
-    public void eliminarArticulo(){
-        
+    public void eliminarArticulo(String etiqueta, String nombre){
+        if (singleton.existeArticulo(nombre) && singleton.existeBebida(etiqueta)){
+            try {
+                manager.getTransaction().begin();
+                Articulo articulo = singleton.retornarArticulo(nombre);
+                Bebida bebida = singleton.retornarBebida(etiqueta);
+                manager.remove(articulo);
+                manager.remove(bebida);
+                System.out.println("Borrar Bebida");
+                manager.getTransaction().commit();
+            } catch (Exception e) {
+                System.out.println("No borra bebida");
+            }
+        }
     }
 }

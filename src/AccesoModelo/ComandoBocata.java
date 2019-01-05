@@ -12,6 +12,7 @@ import java.math.BigInteger;
 public class ComandoBocata implements Comando{
     
     FachadaArticulos fachada = new FachadaArticulos();
+    Singleton singleton = Singleton.getInstancia();
     @Override
     public void crearArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
         int idArticulo = fachada.devolverNumArticulos() + 1;
@@ -29,11 +30,36 @@ public class ComandoBocata implements Comando{
         }
     }
     @Override
-    public void modificarArticulo(){
-        
+    public void modificarArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
+        if (singleton.existeArticulo(nombre) && singleton.existeBocata(etiqueta)){
+            try {
+                manager.getTransaction().begin();
+                Articulo articulo = singleton.retornarArticulo(nombre);
+                Bocata bocata = singleton.retornarBocata(etiqueta);
+                articulo.setNombre(nombre);
+                articulo.setPrecio(precio);
+                bocata.setEtiqueta(etiqueta);
+                manager.getTransaction().commit();
+                System.out.println("SI actualiza Bocata");
+            } catch (Exception e) {
+                System.out.println("No actualiza Bocata");
+            }
+        }
     }
     @Override
-    public void eliminarArticulo(){
-        
+    public void eliminarArticulo(String etiqueta, String nombre){
+        if (singleton.existeArticulo(nombre) && singleton.existeBocata(etiqueta)){
+            try {
+                manager.getTransaction().begin();
+                Articulo articulo = singleton.retornarArticulo(nombre);
+                Bocata bocata = singleton.retornarBocata(etiqueta);
+                manager.remove(articulo);
+                manager.remove(bocata);
+                System.out.println("Borrar Bocata");
+                manager.getTransaction().commit();
+            } catch (Exception e) {
+                System.out.println("No borra bocata");
+            }
+        }
     }
 }

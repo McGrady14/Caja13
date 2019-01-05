@@ -20,10 +20,10 @@ public class Invocador {
     public void ejecutaCrearArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio) {
         comando.crearArticulo(etiqueta,  existencias, nombre, precio);
     }
-    public void ejecutaModificarArticulo() {
-        comando.modificarArticulo();
+    public void ejecutaModificarArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio) {
+        comando.modificarArticulo( etiqueta, existencias,nombre, precio);
     }
-    public void ejecutaEliminarArticulo() {
-        comando.eliminarArticulo();
+    public void ejecutaEliminarArticulo(String etiqueta, String nombre) {
+        comando.eliminarArticulo(etiqueta, nombre);
     }
 }

@@ -2,6 +2,7 @@
 package AccesoModelo;
 
 import static AccesoModelo.Fachada.manager;
+import Creacion.Singleton;
 import Modelo.Articulo;
 import Modelo.Montado;
 import java.math.BigDecimal;
@@ -11,6 +12,7 @@ import java.math.BigInteger;
 public class ComandoMontado implements Comando{
     
     FachadaArticulos fachada = new FachadaArticulos();
+    Singleton singleton = Singleton.getInstancia();
     @Override
     public void crearArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
         int idArticulo = 0;
@@ -31,11 +33,36 @@ public class ComandoMontado implements Comando{
         }
     }
     @Override
-    public void modificarArticulo(){
-        
+    public void modificarArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
+        if (singleton.existeArticulo(nombre) && singleton.existeMontado(etiqueta)){
+            try {
+                manager.getTransaction().begin();
+                Articulo articulo = singleton.retornarArticulo(nombre);
+                Montado montado = singleton.retornarMontado(etiqueta);
+                articulo.setNombre(nombre);
+                articulo.setPrecio(precio);
+                montado.setEtiqueta(etiqueta);
+                manager.getTransaction().commit();
+                System.out.println("SI actualiza Montado");
+            } catch (Exception e) {
+                System.out.println("No actualiza Montado");
+            }
+        }
     }
     @Override
-    public void eliminarArticulo(){
-        
+    public void eliminarArticulo(String etiqueta, String nombre){
+        if (singleton.existeArticulo(nombre) && singleton.existeMontado(etiqueta)){
+            try {
+                manager.getTransaction().begin();
+                Articulo articulo = singleton.retornarArticulo(nombre);
+                Montado montado = singleton.retornarMontado(etiqueta);
+                manager.remove(articulo);
+                manager.remove(montado);
+                System.out.println("Borrar montado");
+                manager.getTransaction().commit();
+            } catch (Exception e) {
+                System.out.println("No borra montado");
+            }
+        }
     }
 }

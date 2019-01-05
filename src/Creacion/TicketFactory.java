@@ -23,7 +23,7 @@ public class TicketFactory {
     
     public void factoryTicket(int tipo, Date fecha, BigDecimal importe, List<Lineaticket> lineaTicket){
         if (tipo == ticket){
-            fac.crearTicket(fecha, importe, lineaTicket); //Factoty method y director de un builder
+            fac.crearTicket(fecha, importe, lineaTicket); //Factoty method
             //Imprimir ticketNormal
             
         }

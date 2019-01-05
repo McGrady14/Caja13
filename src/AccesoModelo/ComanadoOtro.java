@@ -2,6 +2,7 @@
 package AccesoModelo;
 
 import static AccesoModelo.Fachada.manager;
+import Creacion.Singleton;
 import Modelo.Articulo;
 import Modelo.Otro;
 import java.math.BigDecimal;
@@ -11,6 +12,7 @@ import java.math.BigInteger;
 public class ComanadoOtro implements Comando{
     
     FachadaArticulos fachada = new FachadaArticulos();
+    Singleton singleton = Singleton.getInstancia();
     @Override
     public void crearArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
         int idArticulo = fachada.devolverNumArticulos() + 1;
@@ -28,11 +30,36 @@ public class ComanadoOtro implements Comando{
         }
     }
     @Override
-    public void modificarArticulo(){
-        
+    public void modificarArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
+        if (singleton.existeArticulo(nombre) && singleton.existeOtro(etiqueta)){
+            try {
+                manager.getTransaction().begin();
+                Articulo articulo = singleton.retornarArticulo(nombre);
+                Otro otro = singleton.retornarOtro(etiqueta);
+                articulo.setNombre(nombre);
+                articulo.setPrecio(precio);
+                otro.setEtiqueta(etiqueta);
+                manager.getTransaction().commit();
+                System.out.println("SI actualiza Otro");
+            } catch (Exception e) {
+                System.out.println("No actualiza Otro");
+            }
+        }
     }
     @Override
-    public void eliminarArticulo(){
-        
+    public void eliminarArticulo(String etiqueta, String nombre){
+        if (singleton.existeArticulo(nombre) && singleton.existeOtro(etiqueta)){
+            try {
+                manager.getTransaction().begin();
+                Articulo articulo = singleton.retornarArticulo(nombre);
+                Otro otro = singleton.retornarOtro(etiqueta);
+                manager.remove(articulo);
+                manager.remove(otro);
+                System.out.println("Borrar otro");
+                manager.getTransaction().commit();
+            } catch (Exception e) {
+                System.out.println("No borra otro");
+            }
+        }
     }
 }
