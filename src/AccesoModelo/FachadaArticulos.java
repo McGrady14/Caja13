@@ -7,14 +7,12 @@ import Modelo.Bocata;
 import Modelo.Mojito;
 import Modelo.Montado;
 import Modelo.Otro;
-import Modelo.Ticket;
 import Modelo.Lineaticket;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+
 /**
  *
  * @author lafuente
@@ -57,19 +55,10 @@ public class FachadaArticulos extends Fachada{
     }
     @Override 
     public void crearOtro(String etiqueta, String nombre, BigDecimal precio){
-        int idArticulo = devolverNumArticulos() + 1;
-        int idOtro = devolverElementos(4) + 1;
-        Articulo articulo = new Articulo(idArticulo, nombre, precio);
-        Otro otro = new Otro(idOtro, etiqueta, articulo);
-        try {
-            manager.getTransaction().begin();
-            manager.persist(articulo);
-            manager.persist(otro);
-            System.out.println("Registra otro");
-            manager.getTransaction().commit();
-        } catch (Exception e) {
-            System.out.println("No registra otro");
-        }
+        BigInteger existencias = new BigInteger("0");
+        Comando comando = new ComanadoOtro();
+        inv.setComando(comando);
+        inv.ejecutaCrearArticulo(etiqueta, existencias, nombre, precio);
     }
     @Override 
     public void crearMontado(String etiqueta, String nombre, BigDecimal precio){

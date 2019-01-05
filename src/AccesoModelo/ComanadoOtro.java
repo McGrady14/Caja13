@@ -13,6 +13,10 @@ public class ComanadoOtro implements Comando{
     
     FachadaArticulos fachada = new FachadaArticulos();
     Singleton singleton = Singleton.getInstancia();
+
+    public ComanadoOtro() {
+    }
+    
     @Override
     public void crearArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
         int idArticulo = fachada.devolverNumArticulos() + 1;
