@@ -1,29 +1,31 @@
 
 package Creacion;
 
-import AccesoModelo.*;
+
 import Modelo.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
-/**
- *
- * @author lafuente
- */
+import java.util.ArrayList;
+
 public class TicketFactory {
     
     private static final int ticket = 1;
     private static final int ticketMojito = 0;
-    Fachada fac = new FachadaTickets();
+    Director dir = new Director();
+    TicketBuilder builder;
 
     public TicketFactory() {
     }
 
     
-    public void factoryTicket(int tipo, Date fecha, BigDecimal importe, List<Lineaticket> lineaTicket){
+    public void factoryTicket(int tipo, ArrayList<Articulo> articulos){
         if (tipo == ticket){
-            fac.crearTicket(fecha, importe, lineaTicket); //Factoty method
+            builder = new TicketBuilder();
+            dir.setBuilder(builder);
+            dir.crearTicket(articulos);
+            //fac.crearTicket(fecha, importe); //Factoty method
             //Imprimir ticketNormal
             
         }

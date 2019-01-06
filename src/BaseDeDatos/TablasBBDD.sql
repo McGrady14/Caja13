@@ -59,8 +59,9 @@ CREATE TABLE Ticket (
 
 CREATE TABLE LineaTicket (
 	id_linea int,
-	tipo varchar(50),
-	id_articulo int,
+	nombre varchar(50),
+	precio numeric,
+        id_articulo int,
 	id_ticket int,
  primary key(id_linea)		
 );

@@ -9,8 +9,8 @@
     <class>Modelo.Ticket</class>
     <class>Modelo.Bocata</class>
     <class>Modelo.Articulo</class>
-    <class>Modelo.Lineaticket</class>
     <class>Modelo.Montado</class>
+    <class>Modelo.Lineaticket</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/Caja13"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

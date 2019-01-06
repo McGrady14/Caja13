@@ -7,7 +7,7 @@ import Modelo.Bocata;
 import Modelo.Mojito;
 import Modelo.Montado;
 import Modelo.Otro;
-import Modelo.Lineaticket;
+import Modelo.Ticket;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
@@ -124,7 +124,9 @@ public class FachadaArticulos extends Fachada{
     
     
     @Override
-    public void crearTicket(Date fecha, BigDecimal importe, List<Lineaticket> lineaTicket){
+    public Ticket crearTicket(Date fecha, BigDecimal importe){
+        Ticket i = null;
+        return i;
     }
     
 }

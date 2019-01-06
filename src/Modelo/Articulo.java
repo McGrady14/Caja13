@@ -7,6 +7,7 @@ package Modelo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -33,6 +34,9 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Articulo.findByPrecio", query = "SELECT a FROM Articulo a WHERE a.precio = :precio")})
 public class Articulo implements Serializable {
 
+    @Column(name = "precio")
+    private BigDecimal precio;
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -40,8 +44,6 @@ public class Articulo implements Serializable {
     private Integer idArticulo;
     @Column(name = "nombre")
     private String nombre;
-    @Column(name = "precio")
-    private BigDecimal precio;
     @OneToMany(mappedBy = "idArticulo")
     private List<Montado> montadoList;
     @OneToMany(mappedBy = "idArticulo")
@@ -84,13 +86,6 @@ public class Articulo implements Serializable {
         this.nombre = nombre;
     }
 
-    public BigDecimal getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(BigDecimal precio) {
-        this.precio = precio;
-    }
 
     @XmlTransient
     public List<Montado> getMontadoList() {
@@ -169,6 +164,14 @@ public class Articulo implements Serializable {
     @Override
     public String toString() {
         return "Modelo.Articulo[ idArticulo=" + idArticulo + " ]";
+    }
+
+    public BigDecimal getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(BigDecimal precio) {
+        this.precio = precio;
     }
     
 }

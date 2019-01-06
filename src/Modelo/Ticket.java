@@ -7,6 +7,7 @@ package Modelo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -36,6 +37,9 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Ticket.findByImporte", query = "SELECT t FROM Ticket t WHERE t.importe = :importe")})
 public class Ticket implements Serializable {
 
+    @Column(name = "importe")
+    private BigDecimal importe;
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -44,8 +48,6 @@ public class Ticket implements Serializable {
     @Column(name = "fecha")
     @Temporal(TemporalType.DATE)
     private Date fecha;
-    @Column(name = "importe")
-    private BigDecimal importe;
     @OneToMany(mappedBy = "idTicket")
     private List<Lineaticket> lineaticketList;
 
@@ -63,6 +65,13 @@ public class Ticket implements Serializable {
         this.lineaticketList = lineaticketList;
     }
 
+    public Ticket(Integer idTicket, Date fecha, BigDecimal importe) {
+        this.importe = importe;
+        this.idTicket = idTicket;
+        this.fecha = fecha;
+    }
+    
+
     public Integer getIdTicket() {
         return idTicket;
     }
@@ -79,13 +88,6 @@ public class Ticket implements Serializable {
         this.fecha = fecha;
     }
 
-    public BigDecimal getImporte() {
-        return importe;
-    }
-
-    public void setImporte(BigDecimal importe) {
-        this.importe = importe;
-    }
 
     @XmlTransient
     public List<Lineaticket> getLineaticketList() {
@@ -119,6 +121,14 @@ public class Ticket implements Serializable {
     @Override
     public String toString() {
         return "Modelo.Ticket[ idTicket=" + idTicket + " ]";
+    }
+
+    public BigDecimal getImporte() {
+        return importe;
+    }
+
+    public void setImporte(BigDecimal importe) {
+        this.importe = importe;
     }
     
 }

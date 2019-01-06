@@ -44,7 +44,9 @@ public abstract class Fachada {
     public abstract void crearBocata(String etiqueta, String nombre, BigDecimal precio);
     public abstract void crearOtro(String etiqueta, String nombre, BigDecimal precio);
     public abstract void crearMontado(String etiqueta, String nombre, BigDecimal precio);
-    public abstract void crearTicket(Date fecha, BigDecimal importe, List<Lineaticket> lineaTicket);
+    
+    
+    public abstract Ticket crearTicket(Date fecha, BigDecimal importe);
     
     
     

@@ -6,6 +6,7 @@
 package Modelo;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +28,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Lineaticket.findAll", query = "SELECT l FROM Lineaticket l")
     , @NamedQuery(name = "Lineaticket.findByIdLinea", query = "SELECT l FROM Lineaticket l WHERE l.idLinea = :idLinea")
-    , @NamedQuery(name = "Lineaticket.findByTipo", query = "SELECT l FROM Lineaticket l WHERE l.tipo = :tipo")})
+    , @NamedQuery(name = "Lineaticket.findByNombre", query = "SELECT l FROM Lineaticket l WHERE l.nombre = :nombre")
+    , @NamedQuery(name = "Lineaticket.findByPrecio", query = "SELECT l FROM Lineaticket l WHERE l.precio = :precio")})
 public class Lineaticket implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -35,8 +37,10 @@ public class Lineaticket implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_linea")
     private Integer idLinea;
-    @Column(name = "tipo")
-    private String tipo;
+    @Column(name = "nombre")
+    private String nombre;
+    @Column(name = "precio")
+    private BigDecimal precio;
     @JoinColumn(name = "id_articulo", referencedColumnName = "id_articulo")
     @ManyToOne
     private Articulo idArticulo;
@@ -51,13 +55,13 @@ public class Lineaticket implements Serializable {
         this.idLinea = idLinea;
     }
 
-    public Lineaticket(Integer idLinea, String tipo, Articulo idArticulo, Ticket idTicket) {
+    public Lineaticket(Integer idLinea, String nombre, BigDecimal precio, Articulo idArticulo, Ticket idTicket) {
         this.idLinea = idLinea;
-        this.tipo = tipo;
+        this.nombre = nombre;
+        this.precio = precio;
         this.idArticulo = idArticulo;
         this.idTicket = idTicket;
     }
-    
 
     public Integer getIdLinea() {
         return idLinea;
@@ -67,12 +71,20 @@ public class Lineaticket implements Serializable {
         this.idLinea = idLinea;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public BigDecimal getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(BigDecimal precio) {
+        this.precio = precio;
     }
 
     public Articulo getIdArticulo() {
