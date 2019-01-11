@@ -69,4 +69,25 @@ public class ComandoBebida implements Comando{
             }
         }
     }
+    
+
+
+
+    @Override
+    public Bebida retornarBebida(String etiqueta) {
+                       if (singleton.existeBebida(etiqueta)){
+            try {
+                manager.getTransaction().begin();
+                
+                Bebida bebida = singleton.retornarBebida(etiqueta);
+                manager.getTransaction().commit();
+                return bebida;                
+            } catch (Exception e) {
+                System.out.println("Bebida inexistente");
+            }
+        }
+        return null;
+    }
+    
+
 }

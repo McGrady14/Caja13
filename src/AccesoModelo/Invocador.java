@@ -1,6 +1,7 @@
 
 package AccesoModelo;
 
+import Modelo.Bebida;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
@@ -25,5 +26,8 @@ public class Invocador {
     }
     public void ejecutaEliminarArticulo(String etiqueta, String nombre) {
         comando.eliminarArticulo(etiqueta, nombre);
+    }
+    public Bebida ejecutaRetornarBebida(String etiqueta) {
+        return comando.retornarBebida(etiqueta);
     }
 }

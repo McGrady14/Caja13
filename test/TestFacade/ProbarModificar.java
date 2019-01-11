@@ -26,8 +26,6 @@ public class ProbarModificar {
         Comando bebida = new ComandoBebida();
         inv.setComando(bebida);
         inv.ejecutaModificarArticulo("Agua", new BigInteger("250"), "Agua", new BigDecimal("0.9"));
-        
-        
-        
+            
     }
 }
