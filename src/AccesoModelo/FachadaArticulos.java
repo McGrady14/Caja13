@@ -67,7 +67,7 @@ public class FachadaArticulos extends Fachada{
         inv.setComando(comando);
         inv.ejecutaCrearArticulo(etiqueta, existencias, nombre, precio);
     }
-    
+   
     
     
     
@@ -128,5 +128,14 @@ public class FachadaArticulos extends Fachada{
         Ticket i = null;
         return i;
     }
+
+
+
+    @Override
+    public void crearExtraccion(Date date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
     
 }

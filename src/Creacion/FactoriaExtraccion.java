@@ -1,41 +1,40 @@
 
 package Creacion;
 
+import AccesoModelo.Fachada;
 import AccesoModelo.FachadaArticulos;
-import java.math.BigDecimal;
+import AccesoModelo.FachadaExtraccion;
 import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.Date;
-
 /**
  *
  * @author lafuente
  */
-public class FactoriaComida implements FactoriaArticulos {
+public class FactoriaExtraccion implements FactoriaArticulos {
     
-    FachadaArticulos fachada = new FachadaArticulos();
+    FachadaExtraccion fachada = new FachadaExtraccion();
     
     @Override
     public void crearBebida(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
+        
     }
     @Override
     public void crearMojito(String etiqueta, String nombre, BigDecimal precio){
+        
     }
     @Override
     public void crearMontado(String etiqueta, String nombre, BigDecimal precio){
-        fachada.crearMontado(etiqueta, nombre, precio);
     }
     @Override
     public void crearBocata(String etiqueta, String nombre, BigDecimal precio){
-        fachada.crearBocata(etiqueta, nombre, precio);
     }
     @Override
     public void crearOtro(String etiqueta, String nombre, BigDecimal precio){
-        fachada.crearOtro(etiqueta, nombre, precio);
     }
-
 
     @Override
     public void crearExtraccion(Date date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        fachada.crearExtraccion(date);
     }
 }

@@ -7,6 +7,7 @@ package Creacion;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Date;
 /**
  *
  * @author lafuente
@@ -18,5 +19,6 @@ public interface FactoriaArticulos {
     public void crearMontado(String etiqueta, String nombre, BigDecimal precio);
     public void crearBocata(String etiqueta, String nombre, BigDecimal precio);
     public void crearOtro(String etiqueta, String nombre, BigDecimal precio);
+    public void crearExtraccion(Date date);
     
 }

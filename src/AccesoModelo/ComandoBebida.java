@@ -7,6 +7,7 @@ import Modelo.*;
 import Creacion.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -87,6 +88,13 @@ public class ComandoBebida implements Comando{
             }
         }
         return null;
+    }
+
+
+
+    @Override
+    public void crearExtraccion(Date date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 

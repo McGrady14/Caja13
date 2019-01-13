@@ -24,31 +24,31 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author lafuente
  */
 @Entity
-@Table(name = "caja")
+@Table(name = "extraccion")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Caja.findAll", query = "SELECT c FROM Caja c")
-    , @NamedQuery(name = "Caja.findByIdCaja", query = "SELECT c FROM Caja c WHERE c.idCaja = :idCaja")
-    , @NamedQuery(name = "Caja.findByFechaExtraccion", query = "SELECT c FROM Caja c WHERE c.fechaExtraccion = :fechaExtraccion")
-    , @NamedQuery(name = "Caja.findByC200", query = "SELECT c FROM Caja c WHERE c.c200 = :c200")
-    , @NamedQuery(name = "Caja.findByC100", query = "SELECT c FROM Caja c WHERE c.c100 = :c100")
-    , @NamedQuery(name = "Caja.findByC50", query = "SELECT c FROM Caja c WHERE c.c50 = :c50")
-    , @NamedQuery(name = "Caja.findByC20", query = "SELECT c FROM Caja c WHERE c.c20 = :c20")
-    , @NamedQuery(name = "Caja.findByC10", query = "SELECT c FROM Caja c WHERE c.c10 = :c10")
-    , @NamedQuery(name = "Caja.findByC5", query = "SELECT c FROM Caja c WHERE c.c5 = :c5")
-    , @NamedQuery(name = "Caja.findByC2", query = "SELECT c FROM Caja c WHERE c.c2 = :c2")
-    , @NamedQuery(name = "Caja.findByC1", query = "SELECT c FROM Caja c WHERE c.c1 = :c1")
-    , @NamedQuery(name = "Caja.findByC05", query = "SELECT c FROM Caja c WHERE c.c05 = :c05")
-    , @NamedQuery(name = "Caja.findByC02", query = "SELECT c FROM Caja c WHERE c.c02 = :c02")
-    , @NamedQuery(name = "Caja.findByC01", query = "SELECT c FROM Caja c WHERE c.c01 = :c01")
-    , @NamedQuery(name = "Caja.findByC005", query = "SELECT c FROM Caja c WHERE c.c005 = :c005")})
-public class Caja implements Serializable {
+    @NamedQuery(name = "Extraccion.findAll", query = "SELECT c FROM Extraccion c")
+    , @NamedQuery(name = "Extraccion.findByidExtraccion", query = "SELECT c FROM Extraccion c WHERE c.idExtraccion = :idExtraccion")
+    , @NamedQuery(name = "Extraccion.findByFechaExtraccion", query = "SELECT c FROM Extraccion c WHERE c.fechaExtraccion = :fechaExtraccion")
+    , @NamedQuery(name = "Extraccion.findByC200", query = "SELECT c FROM Extraccion c WHERE c.c200 = :c200")
+    , @NamedQuery(name = "Extraccion.findByC100", query = "SELECT c FROM Extraccion c WHERE c.c100 = :c100")
+    , @NamedQuery(name = "Extraccion.findByC50", query = "SELECT c FROM Extraccion c WHERE c.c50 = :c50")
+    , @NamedQuery(name = "Extraccion.findByC20", query = "SELECT c FROM Extraccion c WHERE c.c20 = :c20")
+    , @NamedQuery(name = "Extraccion.findByC10", query = "SELECT c FROM Extraccion c WHERE c.c10 = :c10")
+    , @NamedQuery(name = "Extraccion.findByC5", query = "SELECT c FROM Extraccion c WHERE c.c5 = :c5")
+    , @NamedQuery(name = "Extraccion.findByC2", query = "SELECT c FROM Extraccion c WHERE c.c2 = :c2")
+    , @NamedQuery(name = "Extraccion.findByC1", query = "SELECT c FROM Extraccion c WHERE c.c1 = :c1")
+    , @NamedQuery(name = "Extraccion.findByC05", query = "SELECT c FROM Extraccion c WHERE c.c05 = :c05")
+    , @NamedQuery(name = "Extraccion.findByC02", query = "SELECT c FROM Extraccion c WHERE c.c02 = :c02")
+    , @NamedQuery(name = "Extraccion.findByC01", query = "SELECT c FROM Extraccion c WHERE c.c01 = :c01")
+    , @NamedQuery(name = "Extraccion.findByC005", query = "SELECT c FROM Extraccion c WHERE c.c005 = :c005")})
+public class Extraccion implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "id_caja")
-    private Integer idCaja;
+    @Column(name = "id_extraccion")
+    private Integer idExtraccion;
     @Column(name = "fecha_extraccion")
     @Temporal(TemporalType.DATE)
     private Date fechaExtraccion;
@@ -77,19 +77,36 @@ public class Caja implements Serializable {
     @Column(name = "c005")
     private BigInteger c005;
 
-    public Caja() {
+    public Extraccion() {
     }
 
-    public Caja(Integer idCaja) {
-        this.idCaja = idCaja;
+    public Extraccion(Integer idExtraccion, Date fechaExtraccion) {
+        this.idExtraccion = idExtraccion;
+        this.fechaExtraccion = fechaExtraccion;
+        this.c200 = BigInteger.valueOf(0);
+        this.c100 = BigInteger.valueOf(0);
+        this.c50 = BigInteger.valueOf(0);
+        this.c20 = BigInteger.valueOf(0);
+        this.c10 = BigInteger.valueOf(0);
+        this.c5 = BigInteger.valueOf(0);
+        this.c2 = BigInteger.valueOf(0);
+        this.c1 = BigInteger.valueOf(0);
+        this.c05 = BigInteger.valueOf(0);
+        this.c02 = BigInteger.valueOf(0);
+        this.c01 = BigInteger.valueOf(0);
+        this.c005 = BigInteger.valueOf(0);
     }
 
-    public Integer getIdCaja() {
-        return idCaja;
+    public Extraccion(Integer idExtraccion) {
+        this.idExtraccion = idExtraccion;
     }
 
-    public void setIdCaja(Integer idCaja) {
-        this.idCaja = idCaja;
+    public Integer getIdExtraccion() {
+        return idExtraccion;
+    }
+
+    public void setIdExtraccion(Integer idExtraccion) {
+        this.idExtraccion = idExtraccion;
     }
 
     public Date getFechaExtraccion() {
@@ -199,18 +216,18 @@ public class Caja implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idCaja != null ? idCaja.hashCode() : 0);
+        hash += (idExtraccion != null ? idExtraccion.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Caja)) {
+        if (!(object instanceof Extraccion)) {
             return false;
         }
-        Caja other = (Caja) object;
-        if ((this.idCaja == null && other.idCaja != null) || (this.idCaja != null && !this.idCaja.equals(other.idCaja))) {
+        Extraccion other = (Extraccion) object;
+        if ((this.idExtraccion == null && other.idExtraccion != null) || (this.idExtraccion != null && !this.idExtraccion.equals(other.idExtraccion))) {
             return false;
         }
         return true;
@@ -218,7 +235,7 @@ public class Caja implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Caja[ idCaja=" + idCaja + " ]";
+        return "Modelo.Caja[ idCaja=" + idExtraccion + " ]";
     }
     
 }

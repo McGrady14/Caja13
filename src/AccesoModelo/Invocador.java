@@ -4,6 +4,7 @@ package AccesoModelo;
 import Modelo.Bebida;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Date;
 
 
 public class Invocador {
@@ -27,7 +28,15 @@ public class Invocador {
     public void ejecutaEliminarArticulo(String etiqueta, String nombre) {
         comando.eliminarArticulo(etiqueta, nombre);
     }
+    
+    public void ejecutaCrearExtraccion(Date date) {
+        comando.crearExtraccion(date);
+    }
+    
     public Bebida ejecutaRetornarBebida(String etiqueta) {
         return comando.retornarBebida(etiqueta);
     }
+    
+    
+    
 }

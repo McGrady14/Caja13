@@ -5,8 +5,10 @@ import static AccesoModelo.Fachada.manager;
 import Modelo.Articulo;
 import Modelo.Bocata;
 import Creacion.Singleton;
+import Modelo.Bebida;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Date;
 
 
 public class ComandoBocata implements Comando{
@@ -61,5 +63,17 @@ public class ComandoBocata implements Comando{
                 System.out.println("No borra bocata");
             }
         }
+    }
+
+    @Override
+    public Bebida retornarBebida(String etiqueta) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+
+    @Override
+    public void crearExtraccion(Date date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

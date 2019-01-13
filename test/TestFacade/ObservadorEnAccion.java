@@ -27,16 +27,12 @@ public class ObservadorEnAccion {
         public static void main(String[] args) {
         // TODO code application logic here
         FactoriaArticulos factB = new FactoriaBebida();
-        FactoriaArticulos factC = new FactoriaComida();
         factB.crearBebida("Agua", new BigInteger("200"), "Agua", new BigDecimal("0.8"));
         Invocador inv = new Invocador();
         Comando bebida = new ComandoBebida();
-        inv.setComando(bebida);
-        
+        inv.setComando(bebida);       
         System.out.println("Establecido");
         Sujeto sujeto = new SujetoBebida();
-        
-
 
         sujeto.setBebida(inv.ejecutaRetornarBebida("Agua"));
         

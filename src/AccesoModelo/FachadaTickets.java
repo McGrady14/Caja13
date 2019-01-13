@@ -115,4 +115,11 @@ public class FachadaTickets extends Fachada {
     @Override 
     public void crearMontado(String etiqueta, String nombre, BigDecimal precio){
     }
+
+
+
+    @Override
+    public void crearExtraccion(Date date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

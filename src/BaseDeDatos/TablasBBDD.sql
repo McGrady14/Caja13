@@ -69,8 +69,8 @@ alter table LineaTicket add constraint id_articulo foreign key (id_articulo) ref
 alter table LineaTicket add constraint id_ticket foreign key (id_ticket) references Ticket(id_ticket);
 
 
-CREATE TABLE Caja (
-	id_caja int,
+CREATE TABLE Extraccion (
+	id_extraccion int,
 	fecha_extraccion date,
 	c200 numeric,
 	c100 numeric,
@@ -84,5 +84,5 @@ CREATE TABLE Caja (
 	c02 numeric,
 	c01 numeric,
 	c005 numeric,
- primary key(id_caja)		
+ primary key(id_extraccion)		
 );

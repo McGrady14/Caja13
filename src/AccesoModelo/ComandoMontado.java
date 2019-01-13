@@ -4,9 +4,11 @@ package AccesoModelo;
 import static AccesoModelo.Fachada.manager;
 import Creacion.Singleton;
 import Modelo.Articulo;
+import Modelo.Bebida;
 import Modelo.Montado;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Date;
 
 
 public class ComandoMontado implements Comando{
@@ -64,5 +66,17 @@ public class ComandoMontado implements Comando{
                 System.out.println("No borra montado");
             }
         }
+    }
+
+    @Override
+    public Bebida retornarBebida(String etiqueta) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+
+    @Override
+    public void crearExtraccion(Date date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
