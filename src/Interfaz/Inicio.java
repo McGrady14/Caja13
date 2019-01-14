@@ -34,6 +34,7 @@ public class Inicio {
         Lineaticket linea1 = new Lineaticket();
         ArrayList<Articulo> articulos = new ArrayList();
         Articulo articulo1 = manager.find(Articulo.class, 1);
+        System.out.println(articulo1.getNombre());
         Articulo articulo2 = manager.find(Articulo.class, 2);
         Articulo articulo3 = manager.find(Articulo.class, 3);
         articulos.add(articulo1);

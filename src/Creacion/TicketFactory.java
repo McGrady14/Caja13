@@ -31,6 +31,7 @@ public class TicketFactory {
         }
         else if (tipo == ticketMojito){
             //Imprimir ticket mojito 
+            
         }
     }
 }
