@@ -18,7 +18,7 @@ public class Director {
     
     public void crearTicket(ArrayList<Articulo> articulos){
         Date fecha = builder.getFecha();
-        BigDecimal importe = BigDecimal.valueOf(builder.calcularImporte(articulos));
+        BigDecimal importe = builder.calcularImporte(articulos);
         Ticket ticket = builder.crearTicket(fecha,importe);
         builder.crearLineaTicket(ticket, articulos);
         

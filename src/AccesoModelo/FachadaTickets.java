@@ -35,8 +35,9 @@ public class FachadaTickets extends Fachada {
         try {
             manager.getTransaction().begin();
             manager.persist(ticket);
-            System.out.println("Registra ticket");
+
             manager.getTransaction().commit();
+            System.out.println("Registra ticket");
 
         } catch (Exception e) {
             System.out.println("No registra ticket");
@@ -62,6 +63,7 @@ public class FachadaTickets extends Fachada {
         Lineaticket linea = new Lineaticket();
         tamaño = articulos.size();
         if (tamaño != 0){
+            int i = 0;
             for (Articulo articulo: articulos ){
                 //ticket = manager.find(Ticket.class, idTicket);
                 idLinea = devolverNumElementos(1) + 1;
@@ -72,29 +74,34 @@ public class FachadaTickets extends Fachada {
                 linea.setIdTicket(ticket);
                 linea.setNombre(articulo.getNombre());
                 linea.setPrecio(articulo.getPrecio());
+                i++;
+                persistirLinea(linea);
+//                if ( i%2 == 0){
+//                    persistirLinea(linea);
+//                }
                 lineaTicket.add(linea);
-                try {
-                    manager.getTransaction().begin();
-                    manager.persist(linea);
-                    System.out.println("Registra Linea ticket");
-                    manager.getTransaction().commit();
-
-                } catch (Exception e) {
-                    System.out.println("No registra Linea ticket");
-                }
-
-
+                
             }
             
         }
         else{
             System.out.println("List null pointer");
         }
-        
         return lineaTicket;
     }
     
-    
+    public void persistirLinea (Lineaticket linea){
+
+        try {
+            manager.clear();
+            manager.getTransaction().begin();
+            manager.persist(linea);
+            manager.getTransaction().commit();
+            System.out.println("Registra Linea ticket");  
+        } catch (Exception e) {
+            System.out.println("No registra Linea ticket");
+        }
+    }
     
     
     

@@ -19,10 +19,11 @@ public class TicketBuilder {
         fecha.getTime();
         return fecha;
     }
-    public double calcularImporte(List<Articulo> articulos){
-        double importe = 0;
+    public BigDecimal calcularImporte(List<Articulo> articulos){
+        BigDecimal importe = new BigDecimal("0");
         for(Articulo articulo: articulos){
-            importe = articulo.getPrecio().doubleValue() + importe;
+            importe = articulo.getPrecio().add(importe);
+ 
         }
         return importe;
     }

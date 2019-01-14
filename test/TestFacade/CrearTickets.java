@@ -35,6 +35,8 @@ public class CrearTickets {
         Articulo articulo3 = manager.find(Articulo.class, 3);
         articulos.add(articulo1);
         articulos.add(articulo2);
+        articulos.add(articulo2);
+        articulos.add(articulo3);
         articulos.add(articulo3);
         facT.factoryTicket(1, articulos);
         
