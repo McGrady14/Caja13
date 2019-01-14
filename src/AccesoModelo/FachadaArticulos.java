@@ -125,8 +125,7 @@ public class FachadaArticulos extends Fachada{
     
     @Override
     public Ticket crearTicket(Date fecha, BigDecimal importe){
-        Ticket i = null;
-        return i;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
