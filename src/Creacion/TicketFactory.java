@@ -25,27 +25,18 @@ public class TicketFactory {
 
     
     public void factoryTicket(int tipo, ArrayList<Articulo> articulos){
-        if (tipo == ticket){
-            builder = new TicketBuilder();
-            dir.setBuilder(builder);
-            Ticket auxTicket = dir.crearTicket(articulos);
+        builder = new TicketBuilder();
+        dir.setBuilder(builder);
+        Ticket auxTicket = dir.crearTicket(articulos);
+        Estrategia est;
+        est = new EstrategiaTicketNormal();
+        if (tipo == ticketMojito){         
             //fac.crearTicket(fecha, importe); //Factoty method
             //Imprimir ticketNormal
-            Estrategia est = new EstrategiaTicketNormal();
-            Contexto contexto = new Contexto(est, auxTicket, articulos);
-            contexto.ejecutaEstrategia();
+            est = new EstrategiaTicketMojito();        
         }
-        else if (tipo == ticketMojito){
-            builder = new TicketBuilder();
-            dir.setBuilder(builder);
-            Ticket auxTicket = dir.crearTicket(articulos);
-            //Imprimir ticket mojito 
-            Estrategia est = new EstrategiaTicketMojito();  
-            Contexto contexto = new Contexto(est, auxTicket, articulos);
-            contexto.ejecutaEstrategia();
-        }
-        
-            
+        Contexto contexto = new Contexto(est, auxTicket, articulos);
+        contexto.ejecutaEstrategia();    
 
         
         
