@@ -48,6 +48,8 @@ public class FachadaTickets extends Fachada {
         fecha.getTime();
         if (caja != null){
             recaudacion = caja.getRecaudacion().add(importe);
+        }else {
+            recaudacion = recaudacion.add(importe);
         }
         Caja caja1 = new Caja();
         caja1.setFecha(fecha);

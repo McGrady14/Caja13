@@ -38,7 +38,7 @@ public class BatteryTest {
     
     public static void main(String[] args) {
         
-        System.out.println("Instanciar Factorias");
+       /*System.out.println("Instanciar Factorias");
         FactoriaArticulos factB = new FactoriaBebida();
         FactoriaArticulos factC = new FactoriaComida();
         
@@ -50,7 +50,8 @@ public class BatteryTest {
         System.out.println("Registrar Comidas");
         factC.crearBocata("Tortilla", "Bocata Tortilla", new BigDecimal("2.25"));
         factC.crearMontado("Tortilla", "Montado Tortilla", new BigDecimal("1.5"));
-        factC.crearOtro("Pincho Moruno", "Pincho Moruno", new BigDecimal("3.5"));
+        factC.crearOtro("Pincho Moruno", "Pincho Moruno", new BigDecimal("3.5"));*/
+
         
         
         System.out.println("Instancias invocador y comand para bebidas");
