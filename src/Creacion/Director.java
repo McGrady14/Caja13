@@ -16,11 +16,12 @@ public class Director {
         this.builder = builder;
     }
     
-    public void crearTicket(ArrayList<Articulo> articulos){
+    public Ticket crearTicket(ArrayList<Articulo> articulos){
         Date fecha = builder.getFecha();
         BigDecimal importe = builder.calcularImporte(articulos);
         Ticket ticket = builder.crearTicket(fecha,importe);
         builder.crearLineaTicket(ticket, articulos);
+        return ticket;
         
         
     }
