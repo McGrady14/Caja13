@@ -86,3 +86,10 @@ CREATE TABLE Extraccion (
 	c005 numeric,
  primary key(id_extraccion)		
 );
+
+CREATE TABLE Caja (
+	id_caja int,
+        fecha date,
+	recaudacion numeric,
+ primary key(id_caja)		
+);

@@ -18,10 +18,11 @@ import Administracion.SujetoBebida;
 import Creacion.FactoriaArticulos;
 import Creacion.FactoriaBebida;
 import Creacion.FactoriaComida;
+import Creacion.Singleton;
 import Creacion.TicketFactory;
 import Modelo.Articulo;
 import Modelo.Lineaticket;
-import static TestFacade.CrearTickets.manager;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -33,9 +34,11 @@ import java.util.Calendar;
  */
 public class BatteryTest {
     
+    static Singleton instancia = Singleton.getInstancia();
+    
     public static void main(String[] args) {
         
-        System.out.println("Instanciar Factorias");
+       /*System.out.println("Instanciar Factorias");
         FactoriaArticulos factB = new FactoriaBebida();
         FactoriaArticulos factC = new FactoriaComida();
         
@@ -47,7 +50,8 @@ public class BatteryTest {
         System.out.println("Registrar Comidas");
         factC.crearBocata("Tortilla", "Bocata Tortilla", new BigDecimal("2.25"));
         factC.crearMontado("Tortilla", "Montado Tortilla", new BigDecimal("1.5"));
-        factC.crearOtro("Pincho Moruno", "Pincho Moruno", new BigDecimal("3.5"));
+        factC.crearOtro("Pincho Moruno", "Pincho Moruno", new BigDecimal("3.5"));*/
+
         
         
         System.out.println("Instancias invocador y comand para bebidas");
@@ -80,13 +84,11 @@ public class BatteryTest {
         TicketFactory facT = new TicketFactory();
         Lineaticket linea1 = new Lineaticket();
         ArrayList<Articulo> articulos = new ArrayList();
-        Articulo articulo1 = manager.find(Articulo.class, 1);
-        Articulo articulo2 = manager.find(Articulo.class, 2);
-        Articulo articulo3 = manager.find(Articulo.class, 3);
+        Articulo articulo1;
+        articulo1 = instancia.retornarArticulo("Agua");
         articulos.add(articulo1);
-        articulos.add(articulo2);
-        articulos.add(articulo3);
         facT.factoryTicket(1, articulos);
+        
         
         
         System.out.println("Crear una fecha");
