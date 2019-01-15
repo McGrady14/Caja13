@@ -5,7 +5,9 @@
  */
 package ImprimirTickets;
 
+import Modelo.Articulo;
 import Modelo.Ticket;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,10 +17,12 @@ public class Contexto {
     
     private Estrategia estrategia;
     private Ticket ticket;
+    private ArrayList<Articulo> articulos;
 
-    public Contexto(Estrategia estrategia, Ticket ticket) {
+    public Contexto(Estrategia estrategia, Ticket ticket, ArrayList<Articulo> articulos) {
         this.estrategia = estrategia;
         this.ticket = ticket;
+        this.articulos = articulos;
     }
 
     public void setEstrategia(Estrategia estrategia) {
@@ -28,7 +32,7 @@ public class Contexto {
     
     
     public void ejecutaEstrategia() {
-        estrategia.imprimirTicket(ticket);
+        estrategia.imprimirTicket(ticket,articulos);
     }
     
     

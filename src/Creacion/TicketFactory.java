@@ -2,6 +2,10 @@
 package Creacion;
 
 
+import ImprimirTickets.Contexto;
+import ImprimirTickets.Estrategia;
+import ImprimirTickets.EstrategiaTicketMojito;
+import ImprimirTickets.EstrategiaTicketNormal;
 import Modelo.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -24,14 +28,29 @@ public class TicketFactory {
         if (tipo == ticket){
             builder = new TicketBuilder();
             dir.setBuilder(builder);
-            dir.crearTicket(articulos);
+            Ticket auxTicket = dir.crearTicket(articulos);
             //fac.crearTicket(fecha, importe); //Factoty method
             //Imprimir ticketNormal
-            
+            Estrategia est = new EstrategiaTicketNormal();
+            Contexto contexto = new Contexto(est, auxTicket, articulos);
+            contexto.ejecutaEstrategia();
         }
         else if (tipo == ticketMojito){
+            builder = new TicketBuilder();
+            dir.setBuilder(builder);
+            Ticket auxTicket = dir.crearTicket(articulos);
             //Imprimir ticket mojito 
-            
+            Estrategia est = new EstrategiaTicketMojito();  
+            Contexto contexto = new Contexto(est, auxTicket, articulos);
+            contexto.ejecutaEstrategia();
         }
+        
+            
+
+        
+        
     }
+    
+    
+    
 }

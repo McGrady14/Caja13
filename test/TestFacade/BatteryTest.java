@@ -75,6 +75,8 @@ public class BatteryTest {
         sujeto.notificarObservadores();
         
         System.out.println("Instaciar factori de tickets y linea de tickets para cerar tickets");
+        
+        
         TicketFactory facT = new TicketFactory();
         Lineaticket linea1 = new Lineaticket();
         ArrayList<Articulo> articulos = new ArrayList();
