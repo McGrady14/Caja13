@@ -3,11 +3,7 @@ package AccesoModelo;
 
 import static AccesoModelo.Fachada.manager;
 import Modelo.Articulo;
-import Modelo.Bebida;
-import Modelo.Bocata;
-import Modelo.Mojito;
-import Modelo.Montado;
-import Modelo.Otro;
+import Modelo.*;
 import Modelo.Ticket;
 import Modelo.Lineaticket;
 import java.math.BigInteger;
@@ -38,21 +34,48 @@ public class FachadaTickets extends Fachada {
 
             manager.getTransaction().commit();
             System.out.println("Registra ticket");
-
+            actualizarCaja(importe);
         } catch (Exception e) {
             System.out.println("No registra ticket");
         }
         return ticket;
     }
+    public void actualizarCaja(BigDecimal importe){
+        int cajas = devolverNumElementos(3);
+        Caja caja = manager.find(Caja.class, cajas);
+        BigDecimal recaudacion = new BigDecimal("0");
+        Date fecha = new Date();
+        fecha.getTime();
+        if (caja != null){
+            recaudacion = caja.getRecaudacion().add(importe);
+        }
+        Caja caja1 = new Caja();
+        caja1.setFecha(fecha);
+        caja1.setIdCaja(cajas + 1);
+        caja1.setRecaudacion(recaudacion);
+        try {
+            manager.getTransaction().begin();
+            manager.persist(caja1);
+
+            manager.getTransaction().commit();
+            System.out.println("Registra caja");
+        } catch (Exception e) {
+            System.out.println("No registra caja");
+        }
+    }
     
     public int devolverNumElementos(int tipo){
         int numElementos = 0;
-        if(tipo == 1){
+        if(tipo == 1){// Lineaticket
             List<Lineaticket> elementos =  (List<Lineaticket>) manager.createQuery("SELECT u FROM Lineaticket u").getResultList();
             numElementos = elementos.size();
         }
-        else if(tipo == 2){
+        else if(tipo == 2){//Ticket
             List<Ticket> elementos = (List<Ticket>) manager.createQuery("SELECT u FROM Ticket u").getResultList();
+            numElementos = elementos.size();
+        }
+        else if(tipo == 3){//Caja
+            List<Caja> elementos = (List<Caja>) manager.createQuery("SELECT u FROM Caja u").getResultList();
             numElementos = elementos.size();
         }
         return numElementos;

@@ -10,19 +10,13 @@ import Creacion.Singleton;
 import Modelo.Articulo;
 import Modelo.Lineaticket;
 import java.util.ArrayList;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
 
 /**
  *
  * @author lafuente
  */
 public class CrearTickets {
-    
-    protected static EntityManagerFactory factory = Persistence.createEntityManagerFactory("PeclPatronesPU");
-    
-    protected static EntityManager manager = factory.createEntityManager();
     static Singleton instancia = Singleton.getInstancia();
     
     public static void main(String[] args) {
@@ -34,13 +28,7 @@ public class CrearTickets {
         ArrayList<Articulo> articulos = new ArrayList();
         Articulo articulo1;
         articulo1 = instancia.retornarArticulo("Agua");
-//        Articulo articulo2 = manager.find(Articulo.class, 2);
-//        Articulo articulo3 = manager.find(Articulo.class, 3);
         articulos.add(articulo1);
-//        articulos.add(articulo2);
-//        articulos.add(articulo2);
-//        articulos.add(articulo3);
-//        articulos.add(articulo3);
         facT.factoryTicket(1, articulos);
         
     }

@@ -33,6 +33,12 @@ public class Singleton {
         return instancia;
     }
 
+    
+    
+    
+    
+    
+    
     public List<Articulo> getArticulos() {
         articulos = fachada.devolverArticulos();
         return articulos;

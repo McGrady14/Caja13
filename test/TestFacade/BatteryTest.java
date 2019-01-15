@@ -18,10 +18,11 @@ import Administracion.SujetoBebida;
 import Creacion.FactoriaArticulos;
 import Creacion.FactoriaBebida;
 import Creacion.FactoriaComida;
+import Creacion.Singleton;
 import Creacion.TicketFactory;
 import Modelo.Articulo;
 import Modelo.Lineaticket;
-import static TestFacade.CrearTickets.manager;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ import java.util.Calendar;
  * @author ernes
  */
 public class BatteryTest {
+    
+    static Singleton instancia = Singleton.getInstancia();
     
     public static void main(String[] args) {
         
@@ -80,13 +83,11 @@ public class BatteryTest {
         TicketFactory facT = new TicketFactory();
         Lineaticket linea1 = new Lineaticket();
         ArrayList<Articulo> articulos = new ArrayList();
-        Articulo articulo1 = manager.find(Articulo.class, 1);
-        Articulo articulo2 = manager.find(Articulo.class, 2);
-        Articulo articulo3 = manager.find(Articulo.class, 3);
+        Articulo articulo1;
+        articulo1 = instancia.retornarArticulo("Agua");
         articulos.add(articulo1);
-        articulos.add(articulo2);
-        articulos.add(articulo3);
         facT.factoryTicket(1, articulos);
+        
         
         
         System.out.println("Crear una fecha");

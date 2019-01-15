@@ -6,7 +6,7 @@
 package Modelo;
 
 import java.io.Serializable;
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -42,7 +42,7 @@ public class Caja implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fecha;
     @Column(name = "recaudacion")
-    private BigInteger recaudacion;
+    private BigDecimal recaudacion;
 
     public Caja() {
     }
@@ -67,11 +67,11 @@ public class Caja implements Serializable {
         this.fecha = fecha;
     }
 
-    public BigInteger getRecaudacion() {
+    public BigDecimal getRecaudacion() {
         return recaudacion;
     }
 
-    public void setRecaudacion(BigInteger recaudacion) {
+    public void setRecaudacion(BigDecimal recaudacion) {
         this.recaudacion = recaudacion;
     }
 
