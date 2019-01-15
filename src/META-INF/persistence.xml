@@ -10,6 +10,7 @@
     <class>Modelo.Bocata</class>
     <class>Modelo.Articulo</class>
     <class>Modelo.Montado</class>
+    <class>Modelo.Extraccion</class>
     <class>Modelo.Lineaticket</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/Caja13"/>

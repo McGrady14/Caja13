@@ -43,7 +43,7 @@ public class FachadaExtraccion extends Fachada {
     public int devolverNumExtracciones(){
         
         
-        List<Extraccion> elementos =  (List<Extraccion>) manager.createQuery("SELECT u FROM Extraccion u").getResultList();
+        List<Extraccion> elementos =  (List<Extraccion>) manager.createQuery("SELECT e FROM Extraccion e").getResultList();
         int numElementos = elementos.size();
         
         
