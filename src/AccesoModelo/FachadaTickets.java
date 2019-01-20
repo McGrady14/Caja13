@@ -13,8 +13,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- *
- * @author lafuente
+ * Fachada concreta para crear tickets.
  */
 public class FachadaTickets extends Fachada {
 
@@ -23,6 +22,13 @@ public class FachadaTickets extends Fachada {
         super.crearManager();
     }
     
+    /**
+     * Metodo para crear tickets
+     * 
+     * @param fecha
+     * @param importe
+     * @return 
+     */
     @Override
     public Ticket crearTicket(Date fecha, BigDecimal importe){
         int idTicket = devolverNumElementos(2) + 1;
@@ -40,6 +46,12 @@ public class FachadaTickets extends Fachada {
         }
         return ticket;
     }
+    
+    /**
+     * Actualiza el valor de la caja cada vez que se crea un ticket
+     * 
+     * @param importe 
+     */
     public void actualizarCaja(BigDecimal importe){
         int cajas = devolverNumElementos(3);
         Caja caja = manager.find(Caja.class, cajas);
@@ -82,6 +94,14 @@ public class FachadaTickets extends Fachada {
         }
         return numElementos;
     }
+    
+    /**
+     * Crea las lineas de ticket
+     * 
+     * @param ticket
+     * @param articulos
+     * @return 
+     */
     public List<Lineaticket> crearLineaTicket(Ticket ticket, ArrayList<Articulo> articulos){
         int idLinea, tamaño;
         List<Lineaticket> lineaTicket = new ArrayList();
@@ -114,7 +134,10 @@ public class FachadaTickets extends Fachada {
         }
         return lineaTicket;
     }
-    
+    /**
+     * Metodo para hacer serializaciones de lineas de ticket en la base de datos
+     * @param linea 
+     */
     public void persistirLinea (Lineaticket linea){
 
         try {

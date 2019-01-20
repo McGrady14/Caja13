@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Administracion;
 
 import AccesoModelo.Comando;
@@ -11,8 +7,8 @@ import AccesoModelo.Invocador;
 import java.util.Date;
 
 /**
- *
- * @author ernes
+ * Servidor real: Es la clase que implementa los servicios reales ofrecidos, puede
+ * ser una instancia local o remota.
  */
 public class GestorDeContraseñasParaExtracciones implements GestorDeContraseñas {
 
@@ -21,15 +17,23 @@ public class GestorDeContraseñasParaExtracciones implements GestorDeContraseña
 
         
     
-    
-        public GestorDeContraseñasParaExtracciones() {
+    /**
+     * Constructor
+     * 
+     */
+    public GestorDeContraseñasParaExtracciones() {
         this.nombre = "GestorDeContraseñasParaExtracciones";
         this.permiso = false;
         
         
     }
     
-    
+    /**
+     * Metodo real para validar el usuario
+     * 
+     * @param contraseña
+     * @return 
+     */
     @Override
     public boolean validar(String contraseña) {
         System.out.println("validad en gestor de contraseñas para extracciones");
@@ -37,6 +41,11 @@ public class GestorDeContraseñasParaExtracciones implements GestorDeContraseña
         return true;
     }
 
+    /**
+     * Metodo real para crear extracciones
+     * 
+     * @param date 
+     */
     @Override
     public void crearExtraccion(Date date) {
         System.out.println("Crear exgtraccion en gestor de contraseñas para extracciones");

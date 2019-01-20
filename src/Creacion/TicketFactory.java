@@ -13,6 +13,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 
+
+/**
+ * TicketFactory: clase para crear distintos tipos de tickets.
+ */
+
+
 public class TicketFactory {
     
     private static final int ticket = 1;
@@ -23,7 +29,12 @@ public class TicketFactory {
     public TicketFactory() {
     }
 
-    
+    /**
+     * Crear un objeto  de tipo ticket
+     * 
+     * @param tipo
+     * @param articulos 
+     */
     public void factoryTicket(int tipo, ArrayList<Articulo> articulos){
         builder = new TicketBuilder();
         dir.setBuilder(builder);

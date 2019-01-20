@@ -1,21 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Administracion;
 
 import java.util.Date;
 
 /**
- *
- * Esto es un servidor
+ * Servidor: Define la interfaz común para el Proxy y el Servidor real de forma que
+ * se pueda usar un Proxy donde se espere un Servidor real.
  */
 
 
 public interface GestorDeContraseñas {
+    
+    /**
+     * Metodo para validar a un usuario 
+     *
+     * @param contraseña
+     * @return 
+     */
     public boolean validar(String contraseña);
     
+    /**
+     * Metodo para crear extracciones
+     * 
+     * @param date 
+     */
     public void crearExtraccion(Date date);
     
 }

@@ -11,8 +11,7 @@ import java.math.BigInteger;
 import java.math.BigDecimal;
 
 /**
- *
- * @author lafuente
+ * Facade o fachada: simplifica la creacion de objetos de las clases del modelo.
  */
 public abstract class Fachada {
     //@PersistenceContext(unitname = "PeclPatronesPU")
@@ -23,18 +22,33 @@ public abstract class Fachada {
 
     }
 
+    /**
+     * Crea un EntityManagerFactory
+     */
     public void crearFactory(){
         factory = Persistence.createEntityManagerFactory("PeclPatronesPU");
     }
-    
+    /**
+     * Devuelve el EntityManagerFactory
+     * 
+     * @return EntityManagerFactory
+     */
     public static EntityManagerFactory getFactory() {
         return factory;
     }
     
+    /**
+     * Crea un EntityManager
+     */
     public void crearManager(){
         manager = factory.createEntityManager();
     }
 
+    /**
+     * Devuelve el EntityManager
+     * 
+     * @return EntityManager
+     */
     public static EntityManager getManager() {
         return manager;
     }

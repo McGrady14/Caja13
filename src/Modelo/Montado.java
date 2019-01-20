@@ -18,9 +18,10 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author lafuente
+ * Clase que define los atributos y metodos de los montados.
+ * 
  */
+
 @Entity
 @Table(name = "montado")
 @XmlRootElement

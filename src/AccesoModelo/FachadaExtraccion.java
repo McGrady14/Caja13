@@ -18,8 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- *
- * @author lafuente
+ * Fachada concreta para crear extracciones.
  */
 public class FachadaExtraccion extends Fachada {
 
@@ -30,7 +29,11 @@ public class FachadaExtraccion extends Fachada {
         super.crearManager();
     }
     
-    
+    /**
+     * Metodo para llamar a los metodos que crearan las extracciones.
+     * 
+     * @param date 
+     */
     @Override
     public void crearExtraccion(Date date){        
         
@@ -40,15 +43,15 @@ public class FachadaExtraccion extends Fachada {
     
     }
 
+    /**
+     * Devuelve el numero de extracciones.
+     * 
+     * @return 
+     */
     public int devolverNumExtracciones(){
-        
-        
+
         List<Extraccion> elementos =  (List<Extraccion>) manager.createQuery("SELECT e FROM Extraccion e").getResultList();
         int numElementos = elementos.size();
-        
-        
-            
-        
         return numElementos;
     }
     

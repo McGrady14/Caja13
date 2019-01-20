@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Impresion;
 
 import java.io.FileNotFoundException;
@@ -12,11 +8,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author ernes
+ * Clase para manejar las impresiones en TXT.
  */
 public class ImpresoraTXT {
     
+    /**
+     * Imprimir ticket en TXT
+     * 
+     * @param text 
+     */
     public void printLinea(String text){
     PrintWriter writer;
         try {

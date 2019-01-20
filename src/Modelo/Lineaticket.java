@@ -19,9 +19,10 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author lafuente
+ * Clase que define los atributos y metodos de las lineas de ticket.
+ * 
  */
+
 @Entity
 @Table(name = "lineaticket")
 @XmlRootElement

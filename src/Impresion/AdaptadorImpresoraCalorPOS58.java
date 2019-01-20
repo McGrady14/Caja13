@@ -5,17 +5,26 @@
  */
 package Impresion;
 
+import Modelo.Ticket;
 import java.util.List;
 
 /**
- *
- * @author ernes
+ * Clase para adaptar la clase ImpresoraDeCalor
+ * 
  */
 public class AdaptadorImpresoraCalorPOS58 implements Imprimir {
 
+    /**
+     * Impresora de calor
+     */
     private ImpresoraCalor impresora;
-        
-        public AdaptadorImpresoraCalorPOS58(ImpresoraCalor impresora) {
+    
+    /**
+     * Constructor
+     * 
+     * @param impresora 
+     */    
+    public AdaptadorImpresoraCalorPOS58(ImpresoraCalor impresora) {
         this.impresora = impresora;
     }
     

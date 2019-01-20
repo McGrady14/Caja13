@@ -20,8 +20,8 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author lafuente
+ * Clase que define los atributos y metodos necesarios para manejar la caja.
+ * 
  */
 @Entity
 @Table(name = "caja")

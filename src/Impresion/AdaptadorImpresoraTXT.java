@@ -1,19 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Impresion;
 
+import Modelo.Ticket;
 import java.util.List;
 
 /**
- *
- * @author ernes
+ * Clase para adaptar la clase impresoraTXT
+ * 
  */
 public class AdaptadorImpresoraTXT implements Imprimir {
+    /**
+     * Impresora TXT
+     */
     private ImpresoraTXT impresora;
 
+    /**
+     * Constructor
+     * 
+     * @param impresora 
+     */
     public AdaptadorImpresoraTXT(ImpresoraTXT impresora) {
         this.impresora = impresora;
     }

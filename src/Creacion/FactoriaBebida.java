@@ -6,10 +6,11 @@ import AccesoModelo.FachadaArticulos;
 import java.math.BigInteger;
 import java.math.BigDecimal;
 import java.util.Date;
+
 /**
- *
- * @author lafuente
+ * Factoría concreta de bebidas.
  */
+
 public class FactoriaBebida implements FactoriaArticulos {
     
     FachadaArticulos fachada = new FachadaArticulos();

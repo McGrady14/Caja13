@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Administracion;
 
 import Modelo.Bebida;
 import java.math.BigInteger;
 
 /**
+ * Mantiene una referencia a un objeto SujetoBebida e Implementa la interfaz
+ * Observador. Tambien define los métodos para responder a los mensajes recibidos del
+ * sujeto.
  *
- * @author ernes
  */
 public class ObservadorExistencias implements Observador {
 
@@ -18,6 +16,13 @@ public class ObservadorExistencias implements Observador {
     private int numeroExistenciasParaAlarma;
     private Sujeto sujetoObservado;
 
+    /**
+     * Constructor
+     * 
+     * @param nombre
+     * @param numeroExistenciasParaAlarma
+     * @param sujetoObservado 
+     */
     public ObservadorExistencias(String nombre, int numeroExistenciasParaAlarma, Sujeto sujetoObservado) {
         this.nombre = nombre;
         this.numeroExistenciasParaAlarma = numeroExistenciasParaAlarma;
@@ -25,7 +30,10 @@ public class ObservadorExistencias implements Observador {
         sujetoObservado.añadirObservador(this);
     }
     
-    
+    /**
+     * Metodo para actualizar los sujetos con cambios en el sujeto.
+     * @return 
+     */
     @Override
     public String actualizar() {
         BigInteger existencias = sujetoObservado.getBebida().getExistencias();

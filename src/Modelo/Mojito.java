@@ -18,9 +18,10 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author lafuente
+ * Clase que define los atributos y metodos de los mojitos.
+ * 
  */
+
 @Entity
 @Table(name = "mojito")
 @XmlRootElement

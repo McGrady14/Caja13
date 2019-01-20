@@ -7,8 +7,8 @@ import java.util.List;
 import AccesoModelo.*;
 
 /**
- *
- * @author lafuente
+ * Patron Singleton
+ * 
  */
 public class Singleton {
     
@@ -22,10 +22,18 @@ public class Singleton {
     private List<Mojito> mojitos = new ArrayList<>();
     
     private FachadaArticulos fachada= new FachadaArticulos();
-    //Constuctor privado
+
+    /**
+     * Constructor privado
+     */
     private Singleton() {
     }
  
+    /**
+     * Devuelve la unica instancia de la clase singleton
+     * 
+     * @return Singleto Instancia
+     */
     public static Singleton getInstancia() {
         if (instancia == null) {
             instancia = new Singleton();
@@ -38,36 +46,60 @@ public class Singleton {
     
     
     
-    
+    /**
+     * Devulve lista de articulos
+     * @return Lista articulos
+     */
     public List<Articulo> getArticulos() {
         articulos = fachada.devolverArticulos();
         return articulos;
     }
 
+    /**
+     * Devulve lista de Bebidas
+     * @return Lista bebidas
+     */
     public List<Bebida> getBebidas() {
         bebidas = fachada.devolverBebidas();
         return bebidas;
     }
 
+    /**
+     * Devulve lista de Bocatas
+     * @return Lista Bocatas
+     */
     public List<Bocata> getBocatas() {
         bocatas = fachada.devolverBocatas();
         return bocatas;
     }
 
+    /**
+     * Devulve lista de Montados
+     * @return Lista Montados
+     */
     public List<Montado> getMontados() {
         montados = fachada.devolverMontados();
         return montados;
     }
 
+    /**
+     * Devulve lista de Otros
+     * @return Lista Otros
+     */
     public List<Otro> getOtros() {
         otros = fachada.devolverOtros();
         return otros;
     }
 
+    /**
+     * Devulve lista de Mojitos
+     * @return Lista Mojitos
+     */
     public List<Mojito> getMojitos() {
         mojitos = fachada.devolverMojitos();
         return mojitos;
     }
+    
     
     public boolean existeArticulo(String nombre){
         List<Articulo> articulos = getArticulos();

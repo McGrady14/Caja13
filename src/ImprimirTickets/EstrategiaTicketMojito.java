@@ -9,8 +9,9 @@ import Modelo.Ticket;
 import java.util.ArrayList;
 
 /**
+ * Clase que implementa la interfaz Estrategia. Imprime tickets de tipo mojito.
  *
- * @author lafuente
+ * 
  */
 public class EstrategiaTicketMojito implements Estrategia{
 

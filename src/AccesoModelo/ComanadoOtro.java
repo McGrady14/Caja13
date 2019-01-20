@@ -1,6 +1,12 @@
 
 package AccesoModelo;
 
+/**
+ * Implementa la interfaz comando. Proporciona el comportamiento necesario para
+ * crear, modificar y eliminar articulos de tipo Otro
+ *
+ */
+
 import static AccesoModelo.Fachada.manager;
 import Creacion.Singleton;
 import Modelo.Articulo;
@@ -19,6 +25,14 @@ public class ComanadoOtro implements Comando{
     public ComanadoOtro() {
     }
     
+    /**
+     * Crea un articulo de tipo otro
+     * 
+     * @param etiqueta
+     * @param existencias
+     * @param nombre
+     * @param precio 
+     */
     @Override
     public void crearArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
         int idArticulo = fachada.devolverNumArticulos() + 1;
@@ -35,6 +49,15 @@ public class ComanadoOtro implements Comando{
             System.out.println("No registra otro");
         }
     }
+    
+    /**
+     * Modifica un articulo de tipo otro
+     * 
+     * @param etiqueta
+     * @param existencias
+     * @param nombre
+     * @param precio 
+     */
     @Override
     public void modificarArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
         if (singleton.existeArticulo(nombre) && singleton.existeOtro(etiqueta)){
@@ -52,6 +75,13 @@ public class ComanadoOtro implements Comando{
             }
         }
     }
+    
+    /**
+     * Elimina un articulo de tipo otro
+     * 
+     * @param etiqueta
+     * @param nombre 
+     */
     @Override
     public void eliminarArticulo(String etiqueta, String nombre){
         if (singleton.existeArticulo(nombre) && singleton.existeOtro(etiqueta)){

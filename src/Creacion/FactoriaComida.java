@@ -7,8 +7,7 @@ import java.math.BigInteger;
 import java.util.Date;
 
 /**
- *
- * @author lafuente
+ * Factoría concreta de Comidas.
  */
 public class FactoriaComida implements FactoriaArticulos {
     

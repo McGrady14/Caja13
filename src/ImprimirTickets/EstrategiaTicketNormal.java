@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package ImprimirTickets;
 
 import Impresion.AdaptadorImpresoraTXT;
@@ -13,8 +10,8 @@ import Modelo.Ticket;
 import java.util.ArrayList;
 
 /**
- *
- * @author lafuente
+ * Clase que implementa la interfaz Estrategia. Imprime tickets de tipo normal  .
+ * 
  */
 public class EstrategiaTicketNormal implements Estrategia{
 

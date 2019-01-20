@@ -24,8 +24,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
- * @author lafuente
+ * Clase que define los atributos y metodos necesarios para crear tickets.
+ * 
  */
 @Entity
 @Table(name = "ticket")

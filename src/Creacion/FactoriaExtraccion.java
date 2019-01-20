@@ -7,10 +7,11 @@ import AccesoModelo.FachadaExtraccion;
 import java.math.BigInteger;
 import java.math.BigDecimal;
 import java.util.Date;
+
 /**
- *
- * @author lafuente
+ * Factoría concreta de extracciones.
  */
+
 public class FactoriaExtraccion implements FactoriaArticulos {
     
     FachadaExtraccion fachada = new FachadaExtraccion();

@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Impresion;
 
 /**
- *
- * @author ernes
+ * Clase para manejar las impresiones en papel con una impresora de calor.
  */
 
 import java.awt.Font;
@@ -32,6 +27,11 @@ import javax.print.attribute.PrintRequestAttributeSet;
 
 public class ImpresoraCalor implements Printable {
     
+    /**
+     * Devuelven las impresoras incluidas en el sistema
+     * 
+     * @return Lista de impresoras
+     */
     public List<String> getPrinters(){
 		
 		DocFlavor flavor = DocFlavor.BYTE_ARRAY.AUTOSENSE;
@@ -48,6 +48,15 @@ public class ImpresoraCalor implements Printable {
 		return printerList;
 	}
  
+        /**
+         * Imprimir con la impresora de calor
+         * 
+         * @param g
+         * @param pf
+         * @param page
+         * @return
+         * @throws PrinterException 
+         */
 	@Override
 	public int print(Graphics g, PageFormat pf, int page)
 			throws PrinterException {
@@ -68,7 +77,12 @@ public class ImpresoraCalor implements Printable {
  
 		return PAGE_EXISTS;
 	}
- 
+        /**
+         * Imprimir a traves de un parametro String
+         * 
+         * @param printerName
+         * @param text 
+         */
 	public void printString(String printerName, String text) {
 		
 		// find the printService of name printerName
@@ -100,6 +114,12 @@ public class ImpresoraCalor implements Printable {
  
 	}
  
+        /**
+         * Imprimir a traves de un parametro de tipo Bytes
+         * 
+         * @param printerName
+         * @param bytes 
+         */
 	public void printBytes(String printerName, byte[] bytes) {
 		
 		DocFlavor flavor = DocFlavor.BYTE_ARRAY.AUTOSENSE;
@@ -121,7 +141,13 @@ public class ImpresoraCalor implements Printable {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+         * Encontrar un servicio de impresion
+         * 
+         * @param printerName
+         * @param services
+         * @return PrintService servicio de impresion
+         */
 	private PrintService findPrintService(String printerName,
 			PrintService[] services) {
 		for (PrintService service : services) {

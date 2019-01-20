@@ -1,6 +1,13 @@
 
 package AccesoModelo;
 
+/**
+ * Implementa la interfaz Comando. Proporciona el comportamiento necesario para
+ * cambiar crear una extraccion
+ *
+ * 
+ */
+
 import static AccesoModelo.Fachada.manager;
 import Modelo.Articulo;
 import Modelo.Bocata;
@@ -17,6 +24,10 @@ public class ComandoExtraccion implements Comando{
     FachadaExtraccion fachada = new FachadaExtraccion();
     Singleton singleton = Singleton.getInstancia();
     
+    /**
+     * Crea una extraccion y la serializa.
+     * @param date 
+     */
     @Override
     public void crearExtraccion(Date date) {
         int idExtraccion = fachada.devolverNumExtracciones() + 1;

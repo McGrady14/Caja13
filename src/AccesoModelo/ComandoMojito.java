@@ -1,6 +1,12 @@
 
 package AccesoModelo;
 
+/**
+ * Implementa la interfaz comando. Proporciona el comportamiento necesario para
+ * crear, modificar y eliminar articulos de tipo Mojito
+ *
+ */
+
 import static AccesoModelo.Fachada.manager;
 import Creacion.Singleton;
 import Modelo.Articulo;
@@ -15,6 +21,15 @@ public class ComandoMojito implements Comando {
     
     FachadaArticulos fachada = new FachadaArticulos();
     Singleton singleton = Singleton.getInstancia();
+    
+    /**
+     * Crea un articulo de tipo Mojito
+     * 
+     * @param etiqueta
+     * @param existencias
+     * @param nombre
+     * @param precio 
+     */
     @Override
     public void crearArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
         int idArticulo = fachada.devolverNumArticulos() + 1;
@@ -31,6 +46,15 @@ public class ComandoMojito implements Comando {
             System.out.println("No registra mojito");
         }
     }
+    
+    /**
+     * Modifica un articulo de tipo Mojito
+     * 
+     * @param etiqueta
+     * @param existencias
+     * @param nombre
+     * @param precio 
+     */
     @Override
     public void modificarArticulo(String etiqueta, BigInteger existencias, String nombre, BigDecimal precio){
         if (singleton.existeArticulo(nombre) && singleton.existeMojito(etiqueta)){
@@ -48,6 +72,13 @@ public class ComandoMojito implements Comando {
             }
         }
     }
+    
+    /**
+     * Elimina un articulo de tipo Mojito
+     * 
+     * @param etiqueta
+     * @param nombre 
+     */
     @Override
     public void eliminarArticulo(String etiqueta, String nombre){
         if (singleton.existeArticulo(nombre) && singleton.existeMojito(etiqueta)){
